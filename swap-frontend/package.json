@@ -1,0 +1,33 @@
+{
+  "name": "cfoswap-react",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000 --host --strictPort",
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && vite build",
+    "preview": "vite preview --port 3000 --host --strictPort",
+    "deploy": "powershell -ExecutionPolicy Bypass -File ./deploy-cfoswap.ps1",
+    "deploy:rollback": "powershell -ExecutionPolicy Bypass -File ./deploy-cfoswap.ps1 -Rollback"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.101.4",
+    "i18next": "^23.15.1",
+    "lucide-react": "^0.453.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.2",
+    "react-router": "^6.30.4",
+    "react-router-dom": "^6.30.4",
+    "viem": "^2.55.11",
+    "wagmi": "^3.7.6",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.4.0"
+  }
+}

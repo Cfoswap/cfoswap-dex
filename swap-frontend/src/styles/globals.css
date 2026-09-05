@@ -1,0 +1,598 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   cfoswap — Light + Dark Dual Theme  (V2 — Restrained · Clear · High SNR)
+   Light:  Pale blue-gray bg + white cards + deep blue text (default)
+   Dark:   Deep space blue bg + solid dark cards + white text
+   Removed: light spots / grids / breathing glow / flowing borders /
+            glowing shadows / scanlines
+   Added:   solid cards / soft shadows / unified 12-16 radius /
+            normalized spacing
+   ============================================================ */
+
+/* ---------- Light mode (default, :root scope) ---------- */
+:root {
+  /* ---- Primary: orange-gold (product theme, amber→orange gradient) ---- */
+  --color-primary-50:  #FFFBEB;
+  --color-primary-100: #FEF3C7;
+  --color-primary-200: #FDE68A;
+  --color-primary-300: #FCD34D;
+  --color-primary-400: #FBBF24;
+  --color-primary-500: #F97316;   /* Primary button / accent (orange-gold theme) */
+  --color-primary-600: #EA580C;   /* hover */
+  --color-primary-700: #C2410C;
+  --color-primary-800: #9A3412;
+  --color-primary-900: #7C2D12;
+
+  /* Accent: single purple (minor accents only / Tag / StatMini fg) */
+  --color-accent-400: #818CF8;
+  --color-accent-500: #6366F1;
+  --color-accent-600: #4F46E5;
+
+  /* Warning / Boost: orange */
+  --color-warn-400: #FB923C;
+  --color-warn-500: #EA580C;   /* Boost button primary color */
+  --color-warn-600: #C2410C;
+
+  /* ---- Neutral / Surface (Light: pure white cards + very light gray borders) ---- */
+  --color-bg-primary:    #F5F7FB;     /* Page main background: very light gray-blue */
+  --color-bg-secondary:  #FFFFFF;     /* Card background: 100% pure white */
+  --color-bg-tertiary:   #F8FAFC;     /* Secondary surface: input / tag / sub-card */
+  --color-bg-elevated:   #FFFFFF;     /* Floating layer (Modal / Popover): pure white */
+  --color-bg-glass:      #FFFFFF;     /* Navbar glass → flat pure white */
+
+  --color-border-subtle: #E2E8F0;     /* sl-200 — secondary border */
+  --color-border-default:#E2E8F0;     /* Default border sl-200 (unified) */
+  --color-border-strong: #CBD5E1;     /* Strong border sl-300 (input focus) */
+  --color-border-glow:   #CBD5E1;     /* "Glow border" downgraded to normal strong border */
+
+  /* Text colors: strict 4 layers (high contrast, avoid faded unreadable grays) */
+  --color-text-primary:   #0F172A;    /* Headings / primary text sl-900 */
+  --color-text-secondary: #334155;    /* Body text sl-700 */
+  --color-text-tertiary:  #64748B;    /* Auxiliary / hint sl-500 */
+  --color-text-disabled:  #94A3B8;    /* Disabled sl-400 */
+  --color-text-inverse:   #FFFFFF;    /* Inverse white inside buttons */
+
+  /* ---- State Colors (unified tailwind standards) ---- */
+  --state-success: #059669;
+  --state-success-bg: #ECFDF5;
+  --state-warning: #D97706;
+  --state-warning-bg: #FFFBEB;
+  --state-error:   #DC2626;
+  --state-error-bg: #FEF2F2;
+  --state-info:    #F97316;
+  --state-info-bg: #FFF7ED;
+
+  /* ---- Gradients (keep only 3 necessary; the rest are solid colors) ---- */
+  --gradient-primary: linear-gradient(to right, #FBBF24, #F97316);  /* Primary button → gold-orange gradient (product theme) */
+  --gradient-primary-hover: linear-gradient(to right, #F59E0B, #EA580C);  /* Hover deeper orange */
+  --gradient-warn: linear-gradient(to right, #FBBF24, #F97316);     /* Boost → same primary gradient */
+  --gradient-surface: #FFFFFF;                 /* Card → pure white (gradient removed) */
+  --gradient-card: #FFFFFF;                    /* Surface card → pure white */
+  /* All glow variants downgraded to none/very faint (keep variable names to avoid old JSX errors) */
+  --gradient-glow-blue: transparent;
+  --gradient-glow-purple: transparent;
+  --gradient-glow-cyan: transparent;
+  --gradient-card-border: transparent;
+  --gradient-scanline: transparent;             /* Scanlines removed */
+
+  /* ---- Typography (keep original values, no major changes needed) ---- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-base: 1rem;
+  --text-lg: 1.125rem; --text-xl: 1.25rem; --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem; --text-4xl: 2.25rem;
+  --font-light: 300; --font-regular: 400; --font-medium: 500;
+  --font-semibold: 600; --font-bold: 700; --font-extrabold: 800;
+  --leading-tight: 1.25; --leading-normal: 1.5; --leading-relaxed: 1.65;
+
+  /* ---- Spacing ---- */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+
+  /* ---- Radius (unified 8/12/16 tiers; 24px oversized radius removed) ---- */
+  --radius-sm: 8px;   /* Small buttons / Tags */
+  --radius-md: 10px;  /* Inputs / sub-cards */
+  --radius-lg: 12px;  /* In-card module pills / secondary buttons */
+  --radius-xl: 16px;  /* Primary cards / Modal (16px = optimal financial product radius) */
+  --radius-2xl: 16px; /* Aligned with xl, avoid overly large 24px */
+  --radius-full: 9999px;
+
+  /* ---- Shadows / Elevation (Light: 3 soft shadow layers, 0 glow) ---- */
+  --shadow-sm:  0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md:  0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-lg:  0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-glow: none;                          /* Glow removed */
+  --shadow-glow-strong: none;
+  --shadow-glow-accent: none;
+  --shadow-glow-warn: none;
+
+  /* ---- Motion (faster / remove spring / pure color transitions, avoid displacement) ---- */
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.4, 0, 0.2, 1);   /* Downgraded to standard ease, avoid excessive bounce */
+  --duration-fast: 120ms; --duration-base: 180ms; --duration-slow: 260ms;
+
+  /* ---- Layout (normalized integer values) ---- */
+  --container-max: 1152px;   /* max-w-6xl (1152px, Uniswap standard) */
+  --content-max: 420px;      /* Swap card slimmed to 420px */
+  --nav-height: 72px;        /* Navbar height 72px */
+
+  /* ---- Background Layers (core: 3 layers → 1 layer!) ---- */
+  --bg-layer-base: #F5F7FB;                    /* Page bg: solid pale gray-blue */
+  --bg-layer-halo: transparent;                /* Halo layer fully removed */
+  --bg-layer-grid: transparent;                /* Grid pattern fully removed */
+  --bg-grid-size: 60px 60px;
+  --bg-grid-opacity: 0;                        /* Grid pattern off */
+
+  /* ---- Elevation / Modal (glow fully removed, solid shadows) ---- */
+  --card-outside-border: 0 0 0 1px var(--color-border-default);
+  --modal-card-shadow:
+    0 0 0 1px var(--color-border-default),
+    0 12px 40px rgba(15, 23, 42, 0.10);        /* Modal standard shadow (no blue glow) */
+  --modal-warn-shadow:
+    0 0 0 1px var(--color-border-default),
+    0 12px 40px rgba(15, 23, 42, 0.10);        /* Boost Modal same standard (no orange glow) */
+  --drawer-shadow: -8px 0 24px rgba(15, 23, 42, 0.08);
+  --overlay-mask: rgba(15, 23, 42, 0.5);        /* Mask reduced to 50%, not oppressive */
+  --pagecard-shadow: var(--shadow-md);
+
+  /* ---- Logo gradient (logo only; page h1 no longer uses!) ---- */
+  --logo-gradient: linear-gradient(135deg, #FBBF24 0%, #F97316 100%);
+
+  /* ---- Auxiliary colors (unified de-glowed) ---- */
+  --selection-bg: #FDE68A;                       /* amber-200, text selection */
+  --btn-primary-shadow: 0 2px 6px rgba(249, 115, 22, 0.25);   /* Very faint orange shadow, no glow */
+  --btn-primary-shadow-hover: 0 4px 12px rgba(249, 115, 22, 0.35);
+  --btn-warn-shadow: 0 2px 6px rgba(249, 115, 22, 0.25);
+  --btn-warn-shadow-hover: 0 4px 12px rgba(249, 115, 22, 0.35);
+  --scrollbar-thumb-bg: #CBD5E1;                 /* sl-300 pure gray, no gradient */
+  --scrollbar-thumb-hover-bg: #94A3B8;           /* sl-400 */
+  --scrollbar-thumb-gradient: #CBD5E1;           /* Gradient removed (degraded to solid) */
+  --scrollbar-thumb-hover-gradient: #94A3B8;
+  --scrollbar-color: #94A3B8;
+  --surface-highlight: rgba(15, 23, 42, 0.03);   /* Light: 3% deep sl-900 as "subtle indent" (NOT white highlight!) */
+  --surface-highlight-strong: rgba(15, 23, 42, 0.06);
+  --surface-highlight-soft: rgba(15, 23, 42, 0.015);
+  --border-soft-primary: #FDE68A;
+  --nav-active-bg: #FFFBEB;                       /* primary-50 solid bg, no gradient (tabs selected style) */
+  --state-error-border-soft: #FECACA;             /* Error border: red-200 */
+  --state-warning-border-soft: #FDE68A;           /* Warning border: amber-200 */
+  --logo-shadow: none;                            /* Logo glow shadow removed */
+  --wallet-btn-shadow: 0 2px 6px rgba(249, 115, 22, 0.25);  /* Wallet button uses standard primary orange shadow */
+  --connect-btn-shadow: 0 2px 6px rgba(249, 115, 22, 0.25);
+  --approve-btn-bg: #FFFBEB;                       /* primary-50 solid */
+  --spinner-border-soft: #E2E8F0;
+  --footer-border-color: #E2E8F0;                  /* sl-200 formal border */
+  /* StatMini (key change: three cards unified neutral bg! icon text keeps color → rainbow removed) */
+  --ministat-primary-bg: #F8FAFC;                 /* Three cards unified tertiary bg */
+  --ministat-primary-fg: #F97316;                 /* Orange fg */
+  --ministat-accent-bg:  #F8FAFC;
+  --ministat-accent-fg:  #6366F1;                 /* Purple fg */
+  --ministat-warn-bg:    #F8FAFC;
+  --ministat-warn-fg:    #EA580C;                 /* Orange fg */
+  /* Create pool page: info card → plain sl-50 */
+  --cp-infobox-bg: #FFF7ED;                       /* Solid orange-50 */
+  --cp-infobox-border: #FED7AA;                   /* orange-200 border */
+}
+
+/* ---------- Dark mode (overrides after switch) ---------- */
+:root[data-theme="dark"] {
+  /* ---- Neutral / Surface (original sci-fi deep blue) ---- */
+  --color-bg-primary:    #0a0e27;
+  --color-bg-secondary:  #0f172a;
+  --color-bg-tertiary:   #1a1f3a;
+  --color-bg-elevated:   rgba(22, 30, 56, 0.85);
+  --color-bg-glass:      rgba(15, 23, 42, 0.7);
+
+  --color-border-subtle: rgba(148, 163, 184, 0.08);
+  --color-border-default: rgba(148, 163, 184, 0.15);
+  --color-border-strong:  rgba(251, 146, 60, 0.25);
+  --color-border-glow:    rgba(251, 146, 60, 0.4);
+
+  --color-text-primary:   #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-tertiary:  #94A3B8;
+  --color-text-disabled:  #64748B;
+  --color-text-inverse:   #0F172A;
+
+  /* ---- Gradients (Dark: glow gradients removed, solid/deep-micro only) ---- */
+  --gradient-surface: #1e293b;
+  --gradient-card: #1e293b;
+  --gradient-glow-blue: transparent;
+  --gradient-glow-purple: transparent;
+  --gradient-glow-cyan: transparent;
+  --gradient-card-border: transparent;
+  --gradient-scanline: transparent;
+
+  /* ---- Shadows (Dark: glowing shadows removed, solid deep shadows only) ---- */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.5);
+  --shadow-lg:  0 12px 32px rgba(0,0,0,0.6);
+  --shadow-glow: none;
+  --shadow-glow-strong: none;
+  --shadow-glow-accent: none;
+  --shadow-glow-warn: none;
+
+  /* ---- Background Layers (Dark: 3 layers → 1 solid color, no halo no grid) ---- */
+  --bg-layer-base: #0f172a;
+  --bg-layer-halo: transparent;
+  --bg-layer-grid: transparent;
+  --bg-grid-size: 60px 60px;
+  --bg-grid-opacity: 0;
+
+  /* ---- Elevation / Modal Card Borders & Shadows (Dark: blue-orange glow borders removed, solid dark shadows) ---- */
+  --card-outside-border: 0 0 0 1px rgba(255, 255, 255, 0.03);
+  --modal-card-shadow:
+    0 0 0 1px rgba(255,255,255,0.05),
+    0 16px 48px rgba(0,0,0,0.6);
+  --modal-warn-shadow:
+    0 0 0 1px rgba(255,255,255,0.05),
+    0 16px 48px rgba(0,0,0,0.6);
+  --drawer-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+  --overlay-mask: rgba(0, 0, 0, 0.7);
+  --pagecard-shadow: var(--shadow-md);
+
+  /* ---- Logo gradient (Dark: orange-gold theme) ---- */
+  --logo-gradient: linear-gradient(135deg, #FBBF24 0%, #F97316 100%);
+
+  /* ---- Dark mode auxiliary color overrides ---- */
+  --selection-bg: rgba(251, 146, 60, 0.35);
+  --surface-highlight: rgba(255, 255, 255, 0.06);
+  --surface-highlight-strong: rgba(255, 255, 255, 0.12);
+  --surface-highlight-soft: rgba(255, 255, 255, 0.04);
+  --nav-active-bg: rgba(249, 115, 22, 0.15);
+  --state-error-border-soft: rgba(239, 68, 68, 0.35);
+  --state-warning-border-soft: rgba(245, 158, 11, 0.35);
+  --footer-border-color: rgba(148, 163, 184, 0.08);
+  --spinner-border-soft: rgba(255, 255, 255, 0.25);
+  --approve-btn-bg: rgba(249, 115, 22, 0.12);
+
+  /* ---- Primary scale (dark mode: low-brightness semi-transparent bg, bright fg text) ---- */
+  --color-primary-50:  rgba(249, 115, 22, 0.08);   /* Lightest orange: card bg subtle orange tint */
+  --color-primary-100: rgba(249, 115, 22, 0.15);   /* Light orange: border / light bg */
+  --color-primary-200: rgba(249, 115, 22, 0.25);
+  --color-primary-300: rgba(251, 146, 60, 0.5);
+  --color-primary-400: #FB923C;                     /* Bright orange */
+  --color-primary-500: #F97316;                     /* Primary orange: buttons / accents */
+  --color-primary-600: #EA580C;                     /* hover deeper orange */
+  --color-primary-700: #FDBA74;                     /* Bright orange text in dark mode (deep orange fg in light) */
+  --color-primary-800: #FED7AA;
+  --color-primary-900: #FFEDD5;
+
+  /* ---- State Colors dark mode backgrounds (semi-transparent) ---- */
+  --state-success: #34D399;
+  --state-success-bg: rgba(16, 185, 129, 0.12);
+  --state-warning: #FBBF24;
+  --state-warning-bg: rgba(245, 158, 11, 0.12);
+  --state-error:   #F87171;
+  --state-error-bg: rgba(239, 68, 68, 0.12);
+  --state-info:    #FB923C;
+  --state-info-bg: rgba(249, 115, 22, 0.12);         /* Asset estimate card: dark subtle orange bg */
+  /* StatMini three color scheme (dark: fg brighter, bg stays semi-transparent) */
+  --ministat-primary-bg: rgba(249, 115, 22, 0.18);
+  --ministat-primary-fg: #FB923C;
+  --ministat-accent-bg: rgba(139, 92, 246, 0.18);
+  --ministat-accent-fg: #A78BFA;
+  --ministat-warn-bg: rgba(249, 115, 22, 0.2);
+  --ministat-warn-fg: #FB923C;
+  /* Create pool page hint card solid bg + border (dark mode gradient removed) */
+  --cp-infobox-bg: rgba(249, 115, 22, 0.10);
+  --cp-infobox-border: rgba(251, 146, 60, 0.2);
+}
+
+/* ---- Tailwind @theme variable exposure (auto-follows both themes) ---- */
+@theme inline {
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-bg-tertiary: var(--color-bg-tertiary);
+  --color-bg-elevated: var(--color-bg-elevated);
+  --color-bg-glass: var(--color-bg-glass);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-border-default: var(--color-border-default);
+  --color-border-strong: var(--color-border-strong);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-text-tertiary);
+  --color-text-disabled: var(--color-text-disabled);
+  --color-text-inverse: var(--color-text-inverse);
+  --color-success: var(--state-success);
+  --color-success-bg: var(--state-success-bg);
+  --color-warning: var(--state-warning);
+  --color-warning-bg: var(--state-warning-bg);
+  --color-error: var(--state-error);
+  --color-error-bg: var(--state-error-bg);
+  --color-info: var(--state-info);
+  --color-info-bg: var(--state-info-bg);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+}
+
+/* ---- Base styles ---- */
+@layer base {
+  html, body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv11", "ss01";
+    transition: background-color var(--duration-base) var(--ease-out),
+                color var(--duration-base) var(--ease-out);
+  }
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: var(--gradient-scanline);
+    background-size: 100% 4px;
+    opacity: 0;
+  }
+  td, th { word-break: break-word; }
+  th { @apply whitespace-nowrap; }
+  * { box-sizing: border-box; }
+  ::selection {
+    background: var(--selection-bg);
+    color: var(--color-text-inverse);
+  }
+  /* Input number arrows removal */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; margin: 0;
+  }
+  input[type="number"] { -moz-appearance: textfield; }
+
+  /* Autofill — theme-aware */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-bg-secondary) inset !important;
+    -webkit-text-fill-color: var(--color-text-primary) !important;
+    caret-color: var(--color-text-primary);
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  button { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  a { color: inherit; text-decoration: none; }
+  img { user-select: none; -webkit-user-drag: none; }
+}
+
+/* ---- Component Classes ---- */
+@layer components {
+  .btn-primary {
+    background: linear-gradient(to right, #FBBF24, #F97316);
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.25);
+    transition: all var(--duration-base) var(--ease-out);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(to right, #F59E0B, #EA580C);
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.25);
+  }
+  .btn-primary:active:not(:disabled) { transform: translateY(0); }
+  .btn-warn {
+    background: var(--gradient-warn);
+    color: var(--color-text-inverse);
+    border: none;
+    box-shadow: var(--btn-warn-shadow);
+    transition: all var(--duration-base) var(--ease-out);
+  }
+  .btn-warn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: var(--btn-warn-shadow-hover);
+  }
+  .card-surface {
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border-default);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-xl);
+  }
+  .card-glow { position: relative; }
+  .card-glow::before {
+    content: '';
+    position: absolute; inset: 0; padding: 1px;
+    border-radius: inherit;
+    background: var(--gradient-card-border);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--ease-out);
+  }
+  .card-glow:hover::before { opacity: 1; }
+}
+
+/* ---- Utility Classes ---- */
+@layer utilities {
+  .font-numeric {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-warn {
+    background: var(--gradient-warn);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glass-surface {
+    background: var(--color-bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border-default);
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-bg);
+    border-radius: 999px;
+    transition: background var(--duration-base) var(--ease-out);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover-bg); }
+  .custom-scrollbar::-webkit-scrollbar-corner { background: transparent; }
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
+  }
+}
+
+/* ---- Global scrollbar (page-level, theme-aware) ---- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-gradient);
+  border-radius: 999px;
+  border: 2px solid var(--color-bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-gradient);
+}
+::-webkit-scrollbar-corner { background: var(--color-bg-primary); }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) var(--color-bg-primary);
+}
+
+/* ============================================================
+   Animation classes (theme-agnostic, colors via CSS vars)
+   ============================================================ */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.animate-fadeIn { animation: fadeIn 0.25s var(--ease-out) both; }
+@keyframes toastIn { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes toastOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-12px); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+.animate-fadeOut { animation: fadeOut 0.2s var(--ease-out) both; }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-slideUp { animation: slideUp 0.35s var(--ease-spring) both; }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slideDown { animation: slideDown 0.25s var(--ease-out) both; }
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slideInRight { animation: slideInRight 0.35s var(--ease-out) both; }
+@keyframes slideOutRight {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(100%); }
+}
+.animate-slideOutRight { animation: slideOutRight 0.25s var(--ease-out) both; }
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slideInLeft { animation: slideInLeft 0.3s var(--ease-out) both; }
+@keyframes ddIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-ddIn { animation: ddIn 0.18s var(--ease-spring) both; }
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.animate-scaleIn { animation: scaleIn 0.2s var(--ease-out) both; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(249, 115, 22, 0.03) 0%,
+    rgba(249, 115, 22, 0.1) 50%,
+    rgba(249, 115, 22, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+@keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spinSlow 18s linear infinite; }
+@keyframes caretBlink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+.animate-caret { animation: caretBlink 1s step-end infinite; }
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+.animate-reveal { animation: reveal 0.6s var(--ease-out) both; }
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: translate(-50%, -20px) scale(0.9); }
+  60%  { opacity: 1; transform: translate(-50%, 4px) scale(1.02); }
+  100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+.animate-bounceIn { animation: bounceIn 0.4s var(--ease-spring) both; }
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-countUp { animation: countUp 0.5s var(--ease-out) both; }
+@keyframes progressShine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.progress-shine::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  animation: progressShine 2.2s ease-in-out infinite;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

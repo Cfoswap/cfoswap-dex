@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- === Anti-mirror/anti-phishing: validate hostname against the official whitelist before React boots === -->
+    <script data-cfoswap-anti-mirror>
+      (function () {
+        try {
+          var whitelist = ['cfoswap.com', 'www.cfoswap.com'];
+          var host = (window.location.hostname || '').toLowerCase().trim();
+          // Allow localhost / 127.0.0.1 / LAN IPs for local development
+          var isDev = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(host) || /^192\.168\.|^10\.|^172\.(1[6-9]|2[0-9]|3[01])\./.test(host);
+          if (!isDev && whitelist.indexOf(host) === -1) {
+            document.documentElement.innerHTML =
+              '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0d0f18;color:#fff;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;padding:24px;box-sizing:border-box;">' +
+                '<div style="max-width:560px;text-align:center;">' +
+                  '<div style="font-size:28px;font-weight:700;margin-bottom:16px;color:#f87171;">⚠️ 非法域名访问</div>' +
+                  '<div style="font-size:16px;line-height:1.7;margin-bottom:24px;color:#cbd5e1;">检测到您正在通过非官方镜像域名访问 Cfoswap，为保护您的资产安全，请立即关闭此页面并访问官方网站。</div>' +
+                  '<a href="https://cfoswap.com/" style="display:inline-block;padding:12px 28px;background:#22c55e;color:#052e16;text-decoration:none;border-radius:10px;font-weight:600;font-size:16px;">👉 访问官方网站 cfoswap.com</a>' +
+                  '<div style="margin-top:24px;font-size:13px;color:#64748b;">当前访问域名：' + host + '</div>' +
+                '</div>' +
+              '</div>';
+            document.title = '非法访问 - 请前往 cfoswap.com';
+          }
+        } catch (e) { /* Fail silently: never block the legitimate site */ }
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="./img/logo.png?v=6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'" />
+    <meta name="description" content="cfoswap - 快速兑换代币，提供流动性和挖矿收益" />
+    <title>cfoswap</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
