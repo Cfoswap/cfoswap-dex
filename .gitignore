@@ -1,13 +1,25 @@
+# Dependencies
 node_modules/
-.DS_Store
+
+# Build output
 dist/
-build/
+foundry/out/
+foundry/cache/
+
+# Foundry third-party libraries (restore with `forge install`)
+foundry/lib/
+
+# Environment files (never commit secrets; .env.example is kept via negation)
 .env
-.env.local
+.env.*
+!.env.example
+!**/.env.example
+
+# Tooling
+.trae/
+
+# OS / editor junk
+Thumbs.db
+Desktop.ini
+.DS_Store
 *.log
-.vscode/
-.idea/
-__pycache__/
-*.pyc
-.next/
-coverage/

@@ -1,0 +1,16 @@
+{
+  "name": "88dex-foundry-deploy-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cfoswap 协议 Foundry 部署本地服务（配合前端 FoundryDeploy 页面使用）",
+  "main": "deploy-server.js",
+  "scripts": {
+    "start": "node deploy-server.js",
+    "dev": "node deploy-server.js",
+    "ps:start": "powershell -NoProfile -ExecutionPolicy Bypass -File ./start-deploy-server.ps1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

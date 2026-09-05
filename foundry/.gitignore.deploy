@@ -1,0 +1,6 @@
+# Foundry 部署专用忽略规则
+.env
+deployed-addresses.json
+broadcast/
+cache/
+out/

@@ -1,0 +1,243 @@
+{
+  "savedAt": "2026-09-05T08:00:19.778Z",
+  "deployStates": {
+    "lib_dag": {
+      "status": "success",
+      "address": "0x51F84cc230fe8D482Feb9D26C596B284c3273a04",
+      "txHash": "0xa28d540c14dfa546daaa3ff744dd367f4779996e51fae81dab2d0b9125109226",
+      "output": "[sendCreateTx] from=0x58AB6F9EBc17F6E6A0e677194a75425f55AbC017 dataLen=30526\ntxHash=0xa28d540c14dfa546daaa3ff744dd367f4779996e51fae81dab2d0b9125109226 nonce=0 gasLimit=3372109\nreceipt OK contractAddress=0x51F84cc230fe8D482Feb9D26C596B284c3273a04",
+      "exitCode": 0,
+      "elapsedMs": 7144,
+      "startedAt": 1788535841781,
+      "endedAt": 1788535848925,
+      "verifyTaskId": "v_9ea614467e65",
+      "verifyStatus": "failed",
+      "verifyMessage": "Sourcify 验证未匹配: extra_file_input_bug - It seems your contract's metadata hashes match but not the bytecodes. If you are verifying via metadata.json, use the original full standard JSON input file that has all files including those not needed by this contract. See the issue for more information: https://github.com/argotorg/sourcify/issues/618"
+    },
+    "lib_smart": {
+      "status": "success",
+      "address": "0x8c26Fc2977e9aF8F0450AC3b3120F87901CAf937",
+      "txHash": "0xde944ea47f31d6305ab089d7367ba9c572d554b8387f8adf0168d7db8ab86d2e",
+      "output": "[sendCreateTx] from=0x58AB6F9EBc17F6E6A0e677194a75425f55AbC017 dataLen=31136\ntxHash=0xde944ea47f31d6305ab089d7367ba9c572d554b8387f8adf0168d7db8ab86d2e nonce=1 gasLimit=3438417\nreceipt OK contractAddress=0x8c26Fc2977e9aF8F0450AC3b3120F87901CAf937",
+      "exitCode": 0,
+      "elapsedMs": 9719,
+      "startedAt": 1788535848925,
+      "endedAt": 1788535858644,
+      "verifyTaskId": "v_431d4b7d31c0",
+      "verifyStatus": "failed",
+      "verifyMessage": "Sourcify 验证未匹配: extra_file_input_bug - It seems your contract's metadata hashes match but not the bytecodes. If you are verifying via metadata.json, use the original full standard JSON input file that has all files including those not needed by this contract. See the issue for more information: https://github.com/argotorg/sourcify/issues/618"
+    },
+    "lib_wrap": {
+      "status": "success",
+      "address": "0x5b9eCFB8f4E1bfF7d94063ce948AAB93d91E226F",
+      "txHash": "0x89c08472a3e020d1e9ed9afb9250868e04446738e5d080e9766a41544a74a6d1",
+      "output": "[sendCreateTx] from=0x58AB6F9EBc17F6E6A0e677194a75425f55AbC017 dataLen=23718\ntxHash=0x89c08472a3e020d1e9ed9afb9250868e04446738e5d080e9766a41544a74a6d1 nonce=2 gasLimit=2629505\nreceipt OK contractAddress=0x5b9eCFB8f4E1bfF7d94063ce948AAB93d91E226F",
+      "exitCode": 0,
+      "elapsedMs": 7159,
+      "startedAt": 1788535858644,
+      "endedAt": 1788535865803,
+      "verifyTaskId": "v_ea835269a5c4",
+      "verifyStatus": "failed",
+      "verifyMessage": "Sourcify 验证未匹配: extra_file_input_bug - It seems your contract's metadata hashes match but not the bytecodes. If you are verifying via metadata.json, use the original full standard JSON input file that has all files including those not needed by this contract. See the issue for more information: https://github.com/argotorg/sourcify/issues/618"
+    },
+    "lib_unx": {
+      "status": "success",
+      "address": "0xdF9677D2297fB0eB4B05D0D4cE5b86CC23Dd87E4",
+      "txHash": "0xf4b7d8d0abda4b1545d60addd18c81e81fdd2a5a28a7c4d6b1f7592ec3cdce71",
+      "output": "[sendCreateTx] from=0x58AB6F9EBc17F6E6A0e677194a75425f55AbC017 dataLen=30000\ntxHash=0xf4b7d8d0abda4b1545d60addd18c81e81fdd2a5a28a7c4d6b1f7592ec3cdce71 nonce=3 gasLimit=3313198\nreceipt OK contractAddress=0xdF9677D2297fB0eB4B05D0D4cE5b86CC23Dd87E4",
+      "exitCode": 0,
+      "elapsedMs": 6490,
+      "startedAt": 1788535865804,
+      "endedAt": 1788535872294,
+      "verifyTaskId": "v_b1b517c063c7",
+      "verifyStatus": "failed",
+      "verifyMessage": "Sourcify 验证未匹配: extra_file_input_bug - It seems your contract's metadata hashes match but not the bytecodes. If you are verifying via metadata.json, use the original full standard JSON input file that has all files including those not needed by this contract. See the issue for more information: https://github.com/argotorg/sourcify/issues/618"
+    },
+    "lib_unxv3": {
+      "status": "success",
+      "address": "0x3e2FC024b4Fb6978F5a1F3CDEcae1bEc56c26953",
+      "txHash": "0x3ee196c1b565f8553461399da0a571d698aa5e5d9d5280c7d1a3de7ee12c8c67",
+      "output": "[sendCreateTx] from=0x58AB6F9EBc17F6E6A0e677194a75425f55AbC017 dataLen=27560\ntxHash=0x3ee196c1b565f8553461399da0a571d698aa5e5d9d5280c7d1a3de7ee12c8c67 nonce=4 gasLimit=3048022\nreceipt OK contractAddress=0x3e2FC024b4Fb6978F5a1F3CDEcae1bEc56c26953",
+      "exitCode": 0,
+      "elapsedMs": 6828,
+      "startedAt": 1788535872294,
+      "endedAt": 1788535879122,
+      "verifyTaskId": "v_151ed6113a2e",
+      "verifyStatus": "success",
+      "verifyMessage": "Contract 0x3e2FC024b4Fb6978F5a1F3CDEcae1bEc56c26953 on chain 56 is already verified with runtimeMatch and creationMatch both being exact matches."
+    },
+    "biz_token": {
+      "status": "success",
+      "address": "0x0bDf9703DECEeBa6C1AB8E35F0F76B470D37519D",
+      "txHash": "0x1148b07f6a7e39670d63e6f327eb1c7d87d6d88cda4764e377726dae75b34a07",
+      "output": "[sendCreateTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 dataLen=30334\ntxHash=0x1148b07f6a7e39670d63e6f327eb1c7d87d6d88cda4764e377726dae75b34a07 nonce=27 gasLimit=3340548\nreceipt OK contractAddress=0x0bDf9703DECEeBa6C1AB8E35F0F76B470D37519D",
+      "exitCode": 0,
+      "elapsedMs": 6803,
+      "startedAt": 1788540912305,
+      "endedAt": 1788540919108,
+      "verifyTaskId": "v_6c9449d04447",
+      "verifyStatus": "success",
+      "verifyMessage": "Contract 0x0bDf9703DECEeBa6C1AB8E35F0F76B470D37519D on chain 56 is already verified with runtimeMatch and creationMatch both being exact matches."
+    },
+    "biz_pool": {
+      "status": "success",
+      "address": "0x98180D72bBF38F75E741BdcA65daaB45a6597AD4",
+      "txHash": "0xac0b4cfe077362bdfcbd56046e4724e61ad2cb7192fc39ab5eb9cde9aa1a3343",
+      "output": "[sendCreateTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 dataLen=48526\ntxHash=0xac0b4cfe077362bdfcbd56046e4724e61ad2cb7192fc39ab5eb9cde9aa1a3343 nonce=58 gasLimit=5396312\nreceipt OK contractAddress=0x98180D72bBF38F75E741BdcA65daaB45a6597AD4",
+      "exitCode": 0,
+      "elapsedMs": 7026,
+      "startedAt": 1788594932223,
+      "endedAt": 1788594939249,
+      "verifyTaskId": "v_c00dc26e9dbb",
+      "verifyStatus": "success",
+      "verifyMessage": "Sourcify exact_match (runtime=exact_match, creation=exact_match)"
+    },
+    "biz_mining": {
+      "status": "success",
+      "address": "0x297Dc646e0268aA2F2B8C9acaD9C12DcfdFf13F4",
+      "txHash": "0xb29d0af204946a26fe2b737c6a6fa4c44d98fa593698f94fed78a604b7ea8654",
+      "output": "[sendCreateTx] from=0x58AB6F9EBc17F6E6A0e677194a75425f55AbC017 dataLen=20876\ntxHash=0xb29d0af204946a26fe2b737c6a6fa4c44d98fa593698f94fed78a604b7ea8654 nonce=7 gasLimit=2414469\nreceipt OK contractAddress=0x297Dc646e0268aA2F2B8C9acaD9C12DcfdFf13F4",
+      "exitCode": 0,
+      "elapsedMs": 23167,
+      "startedAt": 1788535889322,
+      "endedAt": 1788535912489,
+      "verifyTaskId": "v_ec98a9bc0b86",
+      "verifyStatus": "success",
+      "verifyMessage": "Contract 0x297Dc646e0268aA2F2B8C9acaD9C12DcfdFf13F4 on chain 56 is already verified with runtimeMatch and creationMatch both being exact matches."
+    },
+    "biz_router": {
+      "status": "success",
+      "address": "0x42b65F80A1C6aB5766418e2222F19AB037F2c3DF",
+      "txHash": "0xd0e7a7a7e60fa7f0db05088b772ab7960a5af9bd397d9b5931516fac8561eaf7",
+      "output": "[sendCreateTx] from=0x58AB6F9EBc17F6E6A0e677194a75425f55AbC017 dataLen=35388\ntxHash=0xd0e7a7a7e60fa7f0db05088b772ab7960a5af9bd397d9b5931516fac8561eaf7 nonce=8 gasLimit=3996883\nreceipt OK contractAddress=0x42b65F80A1C6aB5766418e2222F19AB037F2c3DF",
+      "exitCode": 0,
+      "elapsedMs": 6871,
+      "startedAt": 1788535912490,
+      "endedAt": 1788535919361,
+      "verifyTaskId": "v_1fb923d9f390",
+      "verifyStatus": "success",
+      "verifyMessage": "Contract 0x42b65F80A1C6aB5766418e2222F19AB037F2c3DF on chain 56 is already verified with runtimeMatch and creationMatch both being exact matches."
+    }
+  },
+  "deployed": {
+    "lib_dag": "0x51F84cc230fe8D482Feb9D26C596B284c3273a04",
+    "lib_smart": "0x8c26Fc2977e9aF8F0450AC3b3120F87901CAf937",
+    "lib_wrap": "0x5b9eCFB8f4E1bfF7d94063ce948AAB93d91E226F",
+    "lib_unx": "0xdF9677D2297fB0eB4B05D0D4cE5b86CC23Dd87E4",
+    "lib_unxv3": "0x3e2FC024b4Fb6978F5a1F3CDEcae1bEc56c26953",
+    "biz_token": "0x0bDf9703DECEeBa6C1AB8E35F0F76B470D37519D",
+    "biz_pool": "0x98180D72bBF38F75E741BdcA65daaB45a6597AD4",
+    "biz_mining": "0x297Dc646e0268aA2F2B8C9acaD9C12DcfdFf13F4",
+    "biz_router": "0x42b65F80A1C6aB5766418e2222F19AB037F2c3DF"
+  },
+  "bindStates": {
+    "D1": {
+      "status": "success",
+      "txHash": "0x3eb263407bc0bad7783343b90666f5ab6438a8497e5ee8a126be0ef5476e1acb",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x0bDf9703DECEeBa6C1AB8E35F0F76B470D37519D dataLen=394\ntxHash=0x3eb263407bc0bad7783343b90666f5ab6438a8497e5ee8a126be0ef5476e1acb nonce=59 gasLimit=62026\nreceipt OK status=1 block=120074412 gasUsed=40979",
+      "exitCode": 0,
+      "elapsedMs": 7227,
+      "startedAt": 1788595016389,
+      "endedAt": 1788595023616
+    },
+    "D2": {
+      "status": "success",
+      "txHash": "0x9f4b5402dc233d2af98874053a3cdeb1b486e714e1399bc965c816aeca55a59b",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x0bDf9703DECEeBa6C1AB8E35F0F76B470D37519D dataLen=74\ntxHash=0x9f4b5402dc233d2af98874053a3cdeb1b486e714e1399bc965c816aeca55a59b nonce=60 gasLimit=47229\nreceipt OK status=1 block=120074427 gasUsed=30781",
+      "exitCode": 0,
+      "elapsedMs": 14445,
+      "startedAt": 1788595023617,
+      "endedAt": 1788595038062
+    },
+    "D3": {
+      "status": "success",
+      "txHash": "0xfdbaade2ac666ab45bae84dd8eaa7cc73d8dad980bf3d2ca4b4e89a2255d1fef",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x0bDf9703DECEeBa6C1AB8E35F0F76B470D37519D dataLen=74\ntxHash=0xfdbaade2ac666ab45bae84dd8eaa7cc73d8dad980bf3d2ca4b4e89a2255d1fef nonce=61 gasLimit=43456\nreceipt OK status=1 block=120074477 gasUsed=27585",
+      "exitCode": 0,
+      "elapsedMs": 22487,
+      "startedAt": 1788595038063,
+      "endedAt": 1788595060550
+    },
+    "D4": {
+      "status": "success",
+      "txHash": "0xa0a25070f20b172359ecf914849835b4d5d7f4e37ccc5f59775da636604fa595",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x98180D72bBF38F75E741BdcA65daaB45a6597AD4 dataLen=74\ntxHash=0xa0a25070f20b172359ecf914849835b4d5d7f4e37ccc5f59775da636604fa595 nonce=62 gasLimit=76053\nreceipt OK status=1 block=120074510 gasUsed=50311",
+      "exitCode": 0,
+      "elapsedMs": 23075,
+      "startedAt": 1788595060550,
+      "endedAt": 1788595083625
+    },
+    "D5": {
+      "status": "success",
+      "txHash": "0xf2294b41317c8bdceb618085f8dd9ca618464061c1f491bf245c41834950cdbd",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x98180D72bBF38F75E741BdcA65daaB45a6597AD4 dataLen=74\ntxHash=0xf2294b41317c8bdceb618085f8dd9ca618464061c1f491bf245c41834950cdbd nonce=63 gasLimit=71482\nreceipt OK status=1 block=120074561 gasUsed=47271",
+      "exitCode": 0,
+      "elapsedMs": 23068,
+      "startedAt": 1788595083626,
+      "endedAt": 1788595106694
+    },
+    "D6": {
+      "status": "success",
+      "txHash": "0x6f00dc28fb50d729ac8905d72ca0ad82b70e6ff3b3d880fa3e4765225190a736",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x98180D72bBF38F75E741BdcA65daaB45a6597AD4 dataLen=74\ntxHash=0x6f00dc28fb50d729ac8905d72ca0ad82b70e6ff3b3d880fa3e4765225190a736 nonce=64 gasLimit=45750\nreceipt OK status=1 block=120074611 gasUsed=30149",
+      "exitCode": 0,
+      "elapsedMs": 22417,
+      "startedAt": 1788595106695,
+      "endedAt": 1788595129112
+    },
+    "D7": {
+      "status": "success",
+      "txHash": "0xd9eb2fd72e3f10f96cfd162f72d9fb0715c49da17a158aea1b21dc9e08199029",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x297Dc646e0268aA2F2B8C9acaD9C12DcfdFf13F4 dataLen=74\ntxHash=0xd9eb2fd72e3f10f96cfd162f72d9fb0715c49da17a158aea1b21dc9e08199029 nonce=65 gasLimit=43320\nreceipt OK status=1 block=120074661 gasUsed=27495",
+      "exitCode": 0,
+      "elapsedMs": 22471,
+      "startedAt": 1788595129113,
+      "endedAt": 1788595151584
+    },
+    "D8": {
+      "status": "idle",
+      "txHash": "",
+      "output": "幂等跳过（cannot estimate gas; transaction may fail or may require man）",
+      "exitCode": null,
+      "elapsedMs": 0,
+      "startedAt": 1788595151644,
+      "endedAt": 1788595151644
+    },
+    "D9": {
+      "status": "success",
+      "txHash": "0x948241edb32b43dee585f3847a1b15de88d1c0b065243a5c85df08d7c7365bfc",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x42b65F80A1C6aB5766418e2222F19AB037F2c3DF dataLen=138\ntxHash=0x948241edb32b43dee585f3847a1b15de88d1c0b065243a5c85df08d7c7365bfc nonce=66 gasLimit=50040\nreceipt OK status=1 block=120074711 gasUsed=33004",
+      "exitCode": 0,
+      "elapsedMs": 22348,
+      "startedAt": 1788595151644,
+      "endedAt": 1788595173992
+    },
+    "D10": {
+      "status": "idle",
+      "txHash": "",
+      "output": "幂等跳过（cannot estimate gas; transaction may fail or may require man）",
+      "exitCode": null,
+      "elapsedMs": 0,
+      "startedAt": 1788595174057,
+      "endedAt": 1788595174057
+    },
+    "D11": {
+      "status": "success",
+      "txHash": "0xf6b0df4f90d04e5845c51a52bb867b1dd15bf5d826f98973e00a60b81b1d025d",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x98180D72bBF38F75E741BdcA65daaB45a6597AD4 dataLen=74\ntxHash=0xf6b0df4f90d04e5845c51a52bb867b1dd15bf5d826f98973e00a60b81b1d025d nonce=67 gasLimit=139618\nreceipt OK status=1 block=120074761 gasUsed=92131",
+      "exitCode": 0,
+      "elapsedMs": 22361,
+      "startedAt": 1788595174057,
+      "endedAt": 1788595196418
+    },
+    "D12": {
+      "status": "success",
+      "txHash": "0xfbe3c7cf25e911517751d1ba6ddd3901e6015cc4d3b02f4baf29d84ef6773c10",
+      "output": "[sendCallTx] from=0x58ab6f9ebc17f6e6a0e677194a75425f55abc017 to=0x98180D72bBF38F75E741BdcA65daaB45a6597AD4 dataLen=74\ntxHash=0xfbe3c7cf25e911517751d1ba6ddd3901e6015cc4d3b02f4baf29d84ef6773c10 nonce=68 gasLimit=113868\nreceipt OK status=1 block=120074813 gasUsed=75031",
+      "exitCode": 0,
+      "elapsedMs": 23359,
+      "startedAt": 1788595196419,
+      "endedAt": 1788595219778
+    }
+  }
+}
